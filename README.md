@@ -138,12 +138,12 @@ The attribute `bound_cidr_list` is optional; but, it provides additional securit
 
 The valid values for networks are: 
 
-|------|------|
+| Network Name | Description |
+|----------|:-------------:|
 | mainnet |	The main Bitcoin network. |
 | regtest |	The regression test Bitcoin network.  Not to be confused with the test Bitcoin network (version 3). |
 | testnet | The test Bitcoin network (version 3).  Not to be confused with the regression test network, this network is sometimes simply called "testnet". |
 | simnet | This network is similar to the normal test network except it is intended for private use within a group of individuals doing simulation testing.  The functionality is intended to differ in that the only nodes which are specifically specified are used to create the network rather than following normal discovery rules. |
-|------|------|
 
 #### Create a BTC Address
 
