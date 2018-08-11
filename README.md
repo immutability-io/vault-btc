@@ -196,9 +196,9 @@ address    mtWKt3upJKaoZn6EUuHg38HSiyskVGfDh6
 
 Unlike the vault-ethereum wallet, the vault-btc wallet doesn't interact with the BTC network. All it can do is sign a super simple transaction, given:
 
-- [X] - Destination Address
-- [X] - Amount
-- [X] - Transaction Hash
+- [x] Destination Address
+- [x] Amount
+- [x] Transaction Hash
 
 Later, the plugin will support many more transaction types and interact with the network to validate transaction hashes; but, not now. 
 
@@ -218,8 +218,8 @@ unsignedtx             0100000001484d40d45b9ea0d652fca8258ab7caa42541eb52975857f
 
 There is no DNS for Bitcoin addresses, but internal to an enterprise it would be useful to be able to:
 
-- [X] - Lookup a Bitcoin address by its wallet name;
-- [X] - Lookup a Bitcoin wallet name by its address;
+- [x] Lookup a Bitcoin address by its wallet name;
+- [x] Lookup a Bitcoin wallet name by its address;
 
 So, we provide those two capabilities. These are **unauthenticated** paths in the plugin, so any Vault client can do this lookup:
 
