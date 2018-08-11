@@ -1,0 +1,7 @@
+**/*.sh
+**/data
+**/scripts
+**/test
+**/data/*.json
+**/test
+**/releases/*
