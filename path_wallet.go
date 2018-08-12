@@ -257,7 +257,6 @@ func (b *backend) CreateTransaction(config *Config, wif *btcutil.WIF, destAddr s
 	destAddrAddress, err := btcutil.DecodeAddress(destAddr, b.GetNetworkParams(config.Network))
 	sourceAddress, err := btcutil.DecodeAddress(addresspubkey.EncodeAddress(), b.GetNetworkParams(config.Network))
 	if err != nil {
-		b.Logger().Info(fmt.Sprintf("DecodeAddress = %s", err))
 		return Transaction{}, err
 	}
 	destAddrPkScript, _ := txscript.PayToAddrScript(destAddrAddress)
@@ -371,7 +370,6 @@ func (b *backend) pathWalletsCreate(ctx context.Context, req *logical.Request, d
 		return nil, err
 	}
 	name := data.Get("name").(string)
-	b.Logger().Info("NAME - " + name)
 	wif, err := b.CreatePrivateKey(config.Network)
 	if err != nil {
 		return nil, err
