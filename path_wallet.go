@@ -80,36 +80,6 @@ Creates a Bitcoin compatible wallet using the entropy in Golang's ECDSA crypto i
 			},
 		},
 		&framework.Path{
-			Pattern:      "addresses/" + framework.GenericNameRegex("address"),
-			HelpSynopsis: "Lookup a wallet's name by address.",
-			HelpDescription: `
-
-			Lookup a wallet's name by address.
-`,
-			Fields: map[string]*framework.FieldSchema{
-				"address": &framework.FieldSchema{Type: framework.TypeString},
-			},
-			ExistenceCheck: b.pathExistenceCheck,
-			Callbacks: map[logical.Operation]framework.OperationFunc{
-				logical.ReadOperation: b.pathAddressesRead,
-			},
-		},
-		&framework.Path{
-			Pattern:      "names/" + framework.GenericNameRegex("name"),
-			HelpSynopsis: "Lookup a wallet's address by name.",
-			HelpDescription: `
-
-			Lookup a wallet's address by name.
-`,
-			Fields: map[string]*framework.FieldSchema{
-				"name": &framework.FieldSchema{Type: framework.TypeString},
-			},
-			ExistenceCheck: b.pathExistenceCheck,
-			Callbacks: map[logical.Operation]framework.OperationFunc{
-				logical.ReadOperation: b.pathNamesRead,
-			},
-		},
-		&framework.Path{
 			Pattern:      "export/" + framework.GenericNameRegex("name"),
 			HelpSynopsis: "Export a Bitcoin compatible WIF wallet from vault into the provided path.",
 			HelpDescription: `
@@ -325,7 +295,7 @@ func (b *backend) readWallet(ctx context.Context, req *logical.Request, name str
 		return nil, err
 	}
 	if entry == nil {
-		return nil, fmt.Errorf("failed to find wallet at %s", path)
+		return nil, nil
 	}
 
 	var wallet Wallet
